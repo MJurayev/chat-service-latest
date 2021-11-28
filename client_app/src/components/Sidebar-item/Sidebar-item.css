@@ -1,0 +1,27 @@
+
+.sidebar__link{
+    width: 100%;
+    color: black;
+    font-weight: 700;
+}
+
+.sidebar__item__text{
+    /* display: inline-block; */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.sidebar__item__unread{
+    flex-shrink: 0;
+    background-color: #8e9be4;
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

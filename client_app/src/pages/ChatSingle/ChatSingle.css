@@ -1,0 +1,6 @@
+.messages_area{
+    display:flex;
+    margin-top: auto;
+    flex-direction: column;
+    width: 100%;
+}
