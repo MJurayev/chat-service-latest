@@ -17,7 +17,7 @@
 .chat__area__sidebar{
     display: flex;
     overflow-y: scroll;
-    width: 300px;
+    width: 22%;
     height: 100%;
     background-color:rgba(232, 234, 236, 0.459);
     flex-shrink: 0;
@@ -48,31 +48,13 @@
     position: relative;
     flex-direction: column;
     flex-grow: 1;
-    width: 100%;
+    max-width: 78%;
     height: 100%;
-    overflow-y:scroll;
 }
 
-.chat__area__content::-webkit-scrollbar{
-    width: 7px;
-    transition: all 1s ease-in-out;
-    border-radius: 10px;
-}
-
-.chat__area__content:hover::-webkit-scrollbar{
-    background-color: rgba(232, 234, 236, 0.664);
-}
-
-.chat__area__content::-webkit-scrollbar-thumb{
-    transition: all 1s ease-in-out;
-    border-radius: 5px;
-}
-
-.chat__area__content:hover::-webkit-scrollbar-thumb{
-    background-color:rgb(163, 163, 163) ;
-}
 .chat__area__content__writer{
     position: sticky;
+    margin-top: auto;
     z-index: 5;
     bottom: 0;
 }

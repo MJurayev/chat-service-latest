@@ -8,6 +8,7 @@
 }
 
 .defaultChat__content{
-    
+    width: 500px;
+    height: max-content;
     text-align:  center;
 }

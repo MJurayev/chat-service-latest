@@ -17,12 +17,12 @@ export default function ChatLayout() {
           <Sidebar />
         </div>
         <div className="chat__area__content">
-          <div className="chat__area__content__messages">
+          {/* <div className="chat__area__content__messages"> */}
             <Outlet />
-          </div>
-          <div className="chat__area__content__writer">
+          {/* </div> */}
+          {/* <div className="chat__area__content__writer">
             <WriteInput />
-          </div>
+          </div> */}
         </div>
 
       </div>
