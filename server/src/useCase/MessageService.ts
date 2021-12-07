@@ -6,15 +6,19 @@ export class MessageService {
     async getMessages() {
         return this._repo.getAll()
     }
+
     async getMessageById(id: number) {
-        if (!id) throw new BadRequestError("Id is not provided");
+        if (!id) throw new Error("Id is not provided");
         const result = await this._repo.getById(id)
         if (!result)
-            throw new NotFoundError("not found user")
+            throw new Error("not found user")
         return result
     }
     async postMessage(message: any) {
 
         return this._repo.addMessage(message)
+    }
+    async getAllMessagesByUserId(userId:number){
+            return this._repo.getMessageByUserId(userId)
     }
 }

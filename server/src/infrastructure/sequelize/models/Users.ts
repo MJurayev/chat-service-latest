@@ -28,7 +28,8 @@ const buildUserModel = (sequelize: Sequelize) => {
         {
             sequelize,
             timestamps: true,
-            tableName: 'users'
+            tableName: 'users',
+            modelName: "User"
         },
     );
     return Users

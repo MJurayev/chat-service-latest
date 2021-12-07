@@ -7,14 +7,16 @@ export class UserService {
         return this._repo.getAll()
     }
     async getUserById(id:number){
-        if(!id)throw new BadRequestError("Id is not provided");
+        if(!id)throw new Error("Id is not provided");
         const result = await this._repo.getById(id)
         if(!result)
             throw new NotFoundError("not found user")
         return result
     } 
     async postUser(user:createUserDTO){
-
+        console.log(user)
         return this._repo.addUser(user)
     }
+
+    // 
 }

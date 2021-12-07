@@ -1,0 +1,9 @@
+{
+    "pgUrl":"postgres://postgres:21admin06@localhost:5432/test",
+    "jwtSecret":"Secret",
+    "redis":{
+        "host":"localhost",
+        "port":"6379",
+        "password":"21admin06"
+    }   
+}

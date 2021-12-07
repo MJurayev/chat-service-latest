@@ -1,5 +1,5 @@
 import { BelongsToMany, DataTypes, HasMany, Model, Sequelize } from 'sequelize';
-import { UserModel } from '..';
+import { MessageModel, UserModel } from '..';
 
 const buildMessageModel = (sequelize: Sequelize) => {
     class Message extends Model { }
@@ -12,13 +12,11 @@ const buildMessageModel = (sequelize: Sequelize) => {
             },
             from: {
                 type: DataTypes.INTEGER,
-                allowNull: true,
-                primaryKey:true
+                allowNull: true
             },
             to: {
                 type: DataTypes.INTEGER,
-                allowNull: true,
-                primaryKey:true
+                allowNull: true
             },
             message: {
                 type: DataTypes.STRING,
@@ -30,17 +28,9 @@ const buildMessageModel = (sequelize: Sequelize) => {
             timestamps: true,
             tableName: 'message',
             modelName: "Message"
-        },
+        }
     );
-    // Message.hasOne(UserModel, {
-    //     foreignKey:"from"
-    // })
-    // Message.hasOne(UserModel, {
-    //     foreignKey:"to"
-    // })
-    // UserModel.belongsTo(Message, {
-    //     foreignKey:"id"
-    // })
+
     return Message
 }
 export default buildMessageModel
