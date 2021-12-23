@@ -9,7 +9,7 @@ export interface ISidebarUserInfo {
 }
 export default function SidebarItem({user }:{user:ISidebarUserInfo}) {
   return (
-    <ListItem selected={true} button divider>
+    <ListItem selected={false} button>
       <ListItemIcon>
         <Badge
           color="primary"

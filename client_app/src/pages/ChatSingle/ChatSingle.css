@@ -3,6 +3,9 @@
     height: 100%;
     flex-direction: column;
 }
+.message__author{
+    height: 60px;
+}
 .messages_area{
     display:flex;
     flex-direction: column;

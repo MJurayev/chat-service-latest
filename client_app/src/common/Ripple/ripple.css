@@ -1,0 +1,34 @@
+.ripple-container{
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    width: fit-content;
+    transition: background 400ms, box-shadow 400ms;
+    user-select: none;
+    cursor: pointer;
+  margin: 10px;
+  border-radius:5px;
+}
+.ripple-container:hover{
+  box-shadow:inset 0 4px 4px rgba(0, 0, 0, 0.712);
+}
+.ripple-container:active{
+  box-shadow:inset 0 0px 10px rgba(0, 0, 0, 0.712), 0 0px 10px rgba(0, 0, 0, 0.418);
+}
+span.ripple {
+
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    /* opacity: 0.5; */
+    animation: ripple 400ms linear;
+    background-color: rgba(255, 255, 255, 0.719);
+  }
+  
+  @keyframes ripple {
+    to {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+  

@@ -8,25 +8,15 @@ import './ChatLayout.css';
 export default function ChatLayout() {
   return (
     <ChatProvider>
-      <div className="chatContainer">
-      <div className="chat__navbar">
-        <Navbar />
-      </div>
       <div className="chat__area">
         <div className="chat__area__sidebar">
+         
           <Sidebar />
         </div>
         <div className="chat__area__content">
-          {/* <div className="chat__area__content__messages"> */}
-            <Outlet />
-          {/* </div> */}
-          {/* <div className="chat__area__content__writer">
-            <WriteInput />
-          </div> */}
+          <Outlet />
         </div>
-
       </div>
-    </div>
     </ChatProvider>
   );
 }

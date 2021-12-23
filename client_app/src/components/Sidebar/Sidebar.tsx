@@ -1,5 +1,7 @@
-import { MouseEvent, MouseEventHandler, useCallback, useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Menu as MenuIcon } from '@mui/icons-material';
+import { AppBar, IconButton, Input, Toolbar, Typography } from '@mui/material';
+import { useEffect, useMemo, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import SidebarItem, { ISidebarUserInfo } from '../Sidebar-item/SidebarItem';
 import './Sidebar.css';
 import SidebarLoading from './SidebarLoading';
@@ -34,24 +36,55 @@ export default function Sidebar() {
       clearTimeout(timer);
     };
   }, []);
-  
+
   return (
-    <div
-      
-      className="sidebarContainer"
-    >
-      <SidebarLoading visible={isSidebarInfoLoading} />
-      {users.length == 0
-        ? isSidebarInfoLoading
-          ? 'loading'
-          : 'No users yet'
-        : users.map((user: ISidebarUserInfo, key) => {
-            return (
-              <Link key={key} className="sidebar__link" to={`/chat/${user.id}`}>
-                <SidebarItem user={user} />
-              </Link>
-            );
-          })}
+    <div className="sidebarContainer">
+      <div className="sidebar__tools">
+        <AppBar
+          style={{
+            height: '100%',
+            backgroundColor: '#0A1929',
+            width: '100%',
+            justifyContent: 'flex-start',
+          }}
+          position="static"
+        >
+          <Toolbar style={{ height: '70%', display: 'flex', justifyContent: 'space-between' }}>
+            <IconButton
+              onClick={() => {
+                console.log('Navbarni yaxshir');
+              }}
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Input type="search" className="search__input" />
+          </Toolbar>
+        </AppBar>
+      </div>
+
+      <div className="sidebar__contacts">
+        <SidebarLoading visible={isSidebarInfoLoading} />
+        {users.length == 0
+          ? isSidebarInfoLoading
+            ? 'loading'
+            : 'No users yet'
+          : users.map((user: ISidebarUserInfo, key) => {
+              return (
+                <NavLink
+                  key={key}
+                  className={(props) =>
+                    `${props.isActive ? 'sidebar__link--active' : ''} sidebar__link`
+                  }
+                  to={`/chat/${user.id}`}
+                >
+                  <SidebarItem user={user} />
+                </NavLink>
+              );
+            })}
+      </div>
     </div>
   );
 }

@@ -9,6 +9,7 @@ import ChatSingle from './pages/ChatSingle/ChatSingle';
 import ChatLayout from './layouts/ChatLayout/ChatLayout';
 import './App.css';
 import { useEffect } from 'react';
+import Profile from './pages/Profile/Profile';
 function App() {
   
   //  useEffect(()=>{
@@ -34,6 +35,7 @@ function App() {
             <Route index element={<Chat />} />
             <Route path=":id" element={<ChatSingle />} />
           </Route>
+          <Route path="profile" element={<Profile />} ></Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

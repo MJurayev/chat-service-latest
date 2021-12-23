@@ -63,7 +63,7 @@
 
 .messageBox__sended::after,
 .messageBox__received::after{
-    content: "";
+    /* content: ""; */
     width: calc(var(--border-triangle)*2);
     height: calc(var(--border-triangle)*2);
     border-radius: 50%;

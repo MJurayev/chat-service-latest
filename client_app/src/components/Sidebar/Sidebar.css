@@ -1,6 +1,57 @@
 .sidebarContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* background-color:"#0A1929", */
+}
+
+.sidebar__tools{
+    display: flex;
+    width: 100%;
+    height: 60px;
+}
+.sidebar__contacts{
     position: relative;
     width: 100%;
     display: flex;
     flex-direction:column;
+    overflow-y: scroll;
+    
+}
+
+.sidebar__contacts::-webkit-scrollbar{
+    width: 7px;
+    transition: all 1s ease-in-out;
+    border-radius: 10px;
+}
+
+.sidebar__contacts:hover::-webkit-scrollbar{
+    background-color: rgb(250, 250, 250);
+}
+
+.sidebar__contacts::-webkit-scrollbar-thumb{
+    /* background-color:rgb(163, 163, 163) ; */
+    transition: all 1s ease-in-out;
+
+    border-radius: 5px;
+}
+
+.sidebar__contacts:hover::-webkit-scrollbar-thumb{
+    background-color:rgb(163, 163, 163) ;
+}
+
+
+.sidebar__link{
+    /* background-color:#ffffff; */
+    color: #131b25;
+}
+.sidebar__link--active{
+    /* background-color: rgba(80, 5, 255, 0.733); */
+    color: rgb(178, 186, 194);
+    border-radius: 10px;
+    background-color:#2f4358;
+    /* transition: color .2s ease-in-out; */
+}
+.search__input{
+    
 }

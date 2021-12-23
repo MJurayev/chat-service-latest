@@ -27,3 +27,16 @@ pre{
 a{
   text-decoration: none;
 }
+
+.btn.btn--primary{
+  color: #fff;
+  background-color: #6200ee;
+  padding: 0.5rem 2.3rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+  outline: 0;
+  border: 0;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3); /* black with 30% opacity */
+  cursor: pointer;
+}
