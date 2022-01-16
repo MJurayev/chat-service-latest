@@ -1,5 +1,3 @@
-import React from 'react'
-import { Outlet } from 'react-router'
 import "./Chat.css"
 export default function Chat() {
     return (

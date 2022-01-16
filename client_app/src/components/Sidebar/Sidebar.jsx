@@ -1,13 +1,14 @@
 import { Menu as MenuIcon } from '@mui/icons-material';
-import { AppBar, IconButton, Input, Toolbar, Typography } from '@mui/material';
-import { useEffect, useMemo, useState } from 'react';
+import { AppBar, IconButton, Toolbar } from '@mui/material';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import SidebarItem, { ISidebarUserInfo } from '../Sidebar-item/SidebarItem';
+import { useDrawer } from '../../layouts/DrawerProvider';
+import SidebarItem from '../Sidebar-item/SidebarItem';
 import './Sidebar.css';
 import SidebarLoading from './SidebarLoading';
 export default function Sidebar() {
-  const [users, setUsers] = useState<ISidebarUserInfo[]>([]);
-  const usersList: ISidebarUserInfo[] = [
+  const [users, setUsers] = useState([]);
+  const usersList = [
     { id: '1', name: 'Mansur Lorem ipsum', surname: "Jo'rayev", imageSrc: '/img/static.jpg' },
     {
       id: '2',
@@ -25,7 +26,8 @@ export default function Sidebar() {
     { id: '10', name: 'Soqivoy', surname: 'Xolmirzayev', imageSrc: '/img/static.jpg' },
     { id: '10', name: 'Soqivoy', surname: 'Xolmirzayev', imageSrc: '/img/static.jpg' },
   ];
-  const [isSidebarInfoLoading, SetIsSidebarInfoLoading] = useState<Boolean>(true);
+  const [isSidebarInfoLoading, SetIsSidebarInfoLoading] = useState(true);
+  const [setIsOpen] = useDrawer(true);
   useEffect(() => {
     const timer = setTimeout(() => {
       SetIsSidebarInfoLoading(false);
@@ -36,7 +38,9 @@ export default function Sidebar() {
       clearTimeout(timer);
     };
   }, []);
-
+  const toggleDrawer =()=>{
+    setIsOpen(state => !state)
+  }
   return (
     <div className="sidebarContainer">
       <div className="sidebar__tools">
@@ -51,16 +55,14 @@ export default function Sidebar() {
         >
           <Toolbar style={{ height: '70%', display: 'flex', justifyContent: 'space-between' }}>
             <IconButton
-              onClick={() => {
-                console.log('Navbarni yaxshir');
-              }}
+              onClick={toggleDrawer}
               edge="start"
               color="inherit"
               aria-label="menu"
             >
               <MenuIcon />
             </IconButton>
-            <Input type="search" className="search__input" />
+            <input placeholder='Search' spellCheck={false} type="search" className="search__input" />
           </Toolbar>
         </AppBar>
       </div>
@@ -71,7 +73,7 @@ export default function Sidebar() {
           ? isSidebarInfoLoading
             ? 'loading'
             : 'No users yet'
-          : users.map((user: ISidebarUserInfo, key) => {
+          : users.map((user, key) => {
               return (
                 <NavLink
                   key={key}

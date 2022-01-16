@@ -1,13 +1,7 @@
 import { ListItem, Avatar, ListItemIcon, ListItemText, Badge, Box } from '@mui/material';
 import './Sidebar-item.css';
-export interface ISidebarUserInfo {
-  id: string;
-  name: string;
-  surname: string;
-  lastMessageText?: string;
-  imageSrc?:string;
-}
-export default function SidebarItem({user }:{user:ISidebarUserInfo}) {
+
+export default function SidebarItem({user }) {
   return (
     <ListItem selected={false} button>
       <ListItemIcon>

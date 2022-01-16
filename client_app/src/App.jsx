@@ -1,4 +1,3 @@
-import { Button } from '@mui/material';
 import './App.css';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -8,7 +7,6 @@ import NotFound from './pages/NotFound/NotFound';
 import ChatSingle from './pages/ChatSingle/ChatSingle';
 import ChatLayout from './layouts/ChatLayout/ChatLayout';
 import './App.css';
-import { useEffect } from 'react';
 import Profile from './pages/Profile/Profile';
 function App() {
   

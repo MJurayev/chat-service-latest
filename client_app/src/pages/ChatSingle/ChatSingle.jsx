@@ -1,6 +1,6 @@
-import React, { createRef, RefObject, useContext, useEffect, useState } from 'react';
+import  {useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import MessageItem, { IMessageItem } from '../../components/MessageItem/MessageItem';
+import MessageItem from '../../components/MessageItem/MessageItem';
 import Navbar from '../../components/Navbar/Navbar';
 import WriteInput from '../../components/WriteInput/WriteInput';
 import { MessagesAllContext } from '../../layouts/ChatProvider';
@@ -8,9 +8,9 @@ import './ChatSingle.css';
 export default function ChatSingle() {
   const params = useParams();
 
-  const messageRef: RefObject<HTMLDivElement> = useContext(MessagesAllContext);
-  const [messageState, setMessageState] = useState<IMessageItem[]>([]);
-  const messages: IMessageItem[] = [
+  const messageRef = useContext(MessagesAllContext);
+  const [messageState, setMessageState] = useState([]);
+  const messages = [
     { id: 1, type: 'received', text: 'Salom' },
     { id: 2, type: 'sended', text: 'Salom' },
     { id: 3, type: 'received', text: 'Salom' },
@@ -31,7 +31,7 @@ export default function ChatSingle() {
   useEffect(() => {
     setMessageState(messages);
   }, []);
-  const addMessage = (message: IMessageItem) => {
+  const addMessage = (message) => {
     setMessageState((messagesFake) => {
       return [...messagesFake, message];
     });
@@ -44,7 +44,7 @@ export default function ChatSingle() {
       <div id="messages_all" className="messages_area">
         {params.id}
         {messageState.map((message, key) => {
-          return <MessageItem message={message} />;
+          return <MessageItem key={key} message={message} />;
         })}
       </div>
       <WriteInput addMessage={addMessage} chatAreaRef={messageRef} />
