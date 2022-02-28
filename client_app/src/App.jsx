@@ -8,8 +8,8 @@ import ChatSingle from './pages/ChatSingle/ChatSingle';
 import ChatLayout from './layouts/ChatLayout/ChatLayout';
 import './App.css';
 import Profile from './pages/Profile/Profile';
+import StoreProvider from './store/StoreProvider';
 function App() {
-  
   //  useEffect(()=>{
   //   navigator.connection.addEventListener('change',()=>{
   //     console.log(navigator.connection)
@@ -23,21 +23,23 @@ function App() {
   //  window.addEventListener("online",updateStatus)
   //  window.addEventListener("offline",updateStatus)
   //  },[])
-  
+
   return (
-    <div className="App app-container">
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="chat" element={<ChatLayout />}>
-            <Route index element={<Chat />} />
-            <Route path=":id" element={<ChatSingle />} />
-          </Route>
-          <Route path="profile" element={<Profile />} ></Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Router>
-    </div>
+    <StoreProvider>
+      <div className="App app-container">
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="chat" element={<ChatLayout />}>
+              <Route index element={<Chat />} />
+              <Route path=":id" element={<ChatSingle />} />
+            </Route>
+            <Route path="profile" element={<Profile />}></Route>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Router>
+      </div>
+    </StoreProvider>
   );
 }
 

@@ -1,5 +1,5 @@
 import './ripple.css';
-export default function Ripple({ children }) {
+export default function Ripple({ children , ...props}) {
   function createRipple(event) {
     const button = event.currentTarget;
 
@@ -19,7 +19,7 @@ export default function Ripple({ children }) {
     button.appendChild(circle);
   }
   return (
-    <span className="ripple-container" onClick={createRipple}>
+    <span  className="ripple-container" {...props} onClick={createRipple}>
       {children}
     </span>
   );

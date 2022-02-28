@@ -5,7 +5,7 @@ const result =  client.hset("message", "1", "salom", () => {
 
 })
 
-export function addUser(dbId:string, ws:WebSocket){
-    client.hset((<any>ws).id, dbId, () => {})
+export function addUser(dbId:string, wsId:string){
+    client.hset(wsId, dbId, () => {})
 }
 

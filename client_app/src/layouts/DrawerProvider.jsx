@@ -5,7 +5,7 @@ import { useContext } from 'react'
 export const Context = createContext()
 
 export default function DrawerProvider({children}) {
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(true)
     return (
         <Context.Provider value={{isOpen, setIsOpen}}>
             <Context.Consumer>

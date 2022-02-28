@@ -11,7 +11,6 @@ export function addWsUser(ws:WebSocket):void{
 
 export function removeWsUser(ws:WebSocket):void{
     const isHas = client.hexists('user',(<any>ws).id)
-    
     if(isHas){
         client.hdel("user",(<any>ws).id)
     }

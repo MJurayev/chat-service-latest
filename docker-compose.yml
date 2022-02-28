@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  backend:
+    container_name: auth-service
+
+  nginx:
+    build: nginx
+    ports:
+      - "80:80"
+    volumes_from:
+      - application
+    volumes:
+      - ./logs/nginx/:/var/log/nginx
+  php:
+    container_name: buildchaintest_php_1
+    build: php-fpm
+    expose:
+      - "9000"
+    volumes_from:
+      - application
+    volumes:
+      - ./logs/php-fpm/:/var/www/logs

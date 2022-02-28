@@ -30,7 +30,7 @@ const buildUserModel = (sequelize: Sequelize) => {
             timestamps: true,
             tableName: 'users',
             modelName: "User"
-        },
+        }
     );
     return Users
 }

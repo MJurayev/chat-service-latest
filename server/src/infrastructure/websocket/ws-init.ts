@@ -10,8 +10,9 @@ import { client } from '../../infrastructure/redis/init';
 const wss = new WebSocketServer({server:httpServer });
 const gb = global as any
 gb.clients = {}
-wss.on('connection', function connection(ws, req) {
+wss.on('connection', function (ws, req) {
     const id = req.headers['sec-websocket-key'];
+
     (<any>ws).id = id
     addWsUser(ws)
     console.log("connected")
